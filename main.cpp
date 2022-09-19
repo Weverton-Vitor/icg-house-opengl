@@ -56,7 +56,8 @@ void draw_house()
     glLineWidth(3.0f); // aumenta a espessura das linhas
 
     // Paredes
-    glBegin(GL_LINE_LOOP);
+    glBegin(GL_QUADS);
+    glColor3ub(0, 255, 0);
     glVertex2f(100, 100);
     glVertex2f(400, 100);
 
@@ -66,14 +67,17 @@ void draw_house()
 
     // Teto
     glBegin(GL_TRIANGLES);
+    glColor3ub(255, 0, 0);
+
     glVertex2f(100, 300);
     glVertex2f(400, 300);
     glVertex2f(250, 400);
     glEnd();
 
     // Porta
+    glBegin(GL_QUADS);
+    glColor3ub(0, 0, 255);
 
-    glBegin(GL_LINE_LOOP);
     glVertex2f(150, 100);
     glVertex2f(150, 200);
 
@@ -81,27 +85,17 @@ void draw_house()
     glVertex2f(200, 100);
 
     glEnd();
+
     // Janela
+    glBegin(GL_QUADS);
+        glVertex2f(250, 130);
+        glVertex2f(250, 200);
 
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(250, 130);
-    glVertex2f(250, 200);
-
-    glVertex2f(350, 200);
-    glVertex2f(350, 130);
-
-    glEnd();
-
-    glBegin(GL_LINE_LOOP);
-    glVertex2f(250, 130);
-    glVertex2f(250, 200);
-
-    glVertex2f(350, 200);
-    glVertex2f(350, 130);
+        glVertex2f(350, 200);
+        glVertex2f(350, 130);
 
     glEnd();
 
-     glEnd();
 
     // glBegin(GL_LINE_LOOP);
     // for (size_t i = 200; i < 400; i++)
