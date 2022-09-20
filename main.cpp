@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
 
     init();
     glutDisplayFunc(draw_house);
-
     glutKeyboardFunc(keybord_event);
     glutSpecialFunc(keybord_special_event);
 
@@ -69,8 +68,8 @@ void draw_house()
     glBegin(GL_TRIANGLES);
     glColor3ub(255, 0, 0);
 
-    glVertex2f(100, 300);
-    glVertex2f(400, 300);
+    glVertex2f(100 - 20, 300);
+    glVertex2f(400 + 20, 300);
     glVertex2f(250, 400);
     glEnd();
 
@@ -93,7 +92,18 @@ void draw_house()
 
         glVertex2f(350, 200);
         glVertex2f(350, 130);
+    glEnd();
 
+    glBegin(GL_LINE_LOOP);
+    int num_segments = 150000;
+    glColor3ub(247, 147, 26);
+    int r = 5;
+    for (int ii = 0; ii < num_segments; ii++)   {
+        float theta = 2.0f * 3.1415926f * float(ii) / float(num_segments);//get the current angle 
+        float x = r * cosf(theta);//calculate the x component 
+        float y = r * sinf(theta);//calculate the y component 
+        glVertex2f(x + 190, y + 150);//output vertex 
+    }
     glEnd();
 
 
